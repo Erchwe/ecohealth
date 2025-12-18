@@ -1,0 +1,18 @@
+@prefix ex: <http://example.org/ecohealth/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/ecohealth/City/Bandung> a ex:City ;
+    rdfs:label "Bandung" .
+
+<http://example.org/ecohealth/City/Denpasar> a ex:City ;
+    rdfs:label "Denpasar" .
+
+<http://example.org/ecohealth/City/Jakarta> a ex:City ;
+    rdfs:label "Jakarta" .
+
+<http://example.org/ecohealth/City/Medan> a ex:City ;
+    rdfs:label "Medan" .
+
+<http://example.org/ecohealth/City/Surabaya> a ex:City ;
+    rdfs:label "Surabaya" .
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diseases>
+  <disease id="asma">
+    <name>Asma</name>
+    <category>Penyakit pernapasan kronis</category>
+    <symptoms>Sesak napas, batuk, dada terasa berat, mengi</symptoms>
+    <riskLevel>Tinggi</riskLevel>
+    <sensitiveGroup>Anak-anak, lansia, penderita alergi</sensitiveGroup>
+    <description>
+      Kondisi peradangan kronis pada saluran napas yang membuat penderitanya sangat sensitif terhadap polusi udara.
+    </description>
+  </disease>
+
+  <disease id="pneumonia">
+    <name>Pneumonia</name>
+    <category>Infeksi paru-paru</category>
+    <symptoms>Demam, batuk berdahak, nyeri dada, napas cepat</symptoms>
+    <riskLevel>Tinggi</riskLevel>
+    <sensitiveGroup>Balita, lansia, penderita penyakit kronis</sensitiveGroup>
+    <description>
+      Infeksi pada kantung udara di paru-paru yang dapat diperburuk oleh paparan polusi udara jangka panjang.
+    </description>
+  </disease>
+
+  <disease id="ispa">
+    <name>ISPA</name>
+    <category>Infeksi saluran pernapasan akut</category>
+    <symptoms>Batuk, pilek, sakit tenggorokan, demam</symptoms>
+    <riskLevel>Sedang</riskLevel>
+    <sensitiveGroup>Anak-anak, lansia</sensitiveGroup>
+    <description>
+      Infeksi mendadak pada saluran napas bagian atas maupun bawah yang sering dipicu atau diperparah oleh kualitas udara yang buruk.
+    </description>
+  </disease>
+</diseases>
