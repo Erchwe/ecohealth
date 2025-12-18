@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "app/main_seed_rdf.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app/main_seed_rdf.py"
+    }
+  ]
+}

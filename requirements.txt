@@ -1,3 +1,5 @@
 requests
 rdflib
 python-dotenv
+flask
+flask-cors

@@ -1,7 +1,7 @@
+import os
+
 API_KEY = "dcee643f4369616080bf4177ea5c2e8051d74cee84d00a091826798172b2de2e"
-
 OPENAQ_V3_URL = "https://api.openaq.org/v3/locations"
-
 
 CITY_COORDINATES = {
     "Jakarta":    {"lat": -6.2088, "lon": 106.8456, "radius": 12000},
@@ -13,7 +13,8 @@ CITY_COORDINATES = {
 
 PM25_PARAMETER = "pm25"
 
-RAW_DATA_DIR = "../../data_raw/openaq_v3"
-RDF_OUTPUT_PATH = "ecohealth-Backend/semantic/ontology.ttl"
+RAW_DATA_DIR = "/tmp/data_raw/openaq_v3"
+RDF_OUTPUT_PATH = "/tmp/ontology.ttl"
 
 BASE_URI = "http://example.org/ecohealth/"
+
