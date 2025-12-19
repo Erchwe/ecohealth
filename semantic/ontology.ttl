@@ -1,18 +1,77 @@
-@prefix ex: <https://ecohealth-xi.vercel.app/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://ecohealth.org/schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ecohealth-xi.vercel.app/City/Bandung> a ex:City ;
-    rdfs:label "Bandung" .
+ex:Obs_Bandung a sosa:Observation ;
+    ex:hasRiskLevel ex:ModerateRisk ;
+    ex:triggersRiskFor ex:Ispa ;
+    sosa:hasFeatureOfInterest ex:Bandung ;
+    sosa:hasSimpleResult 1.12e+02 .
 
-<https://ecohealth-xi.vercel.app/City/Denpasar> a ex:City ;
-    rdfs:label "Denpasar" .
+ex:Obs_Bangkok a sosa:Observation ;
+    ex:hasRiskLevel ex:HighRisk ;
+    ex:recommendation "Gunakan Masker N95" ;
+    ex:triggersRiskFor ex:Asma ;
+    sosa:hasFeatureOfInterest ex:Bangkok ;
+    sosa:hasSimpleResult 1.55e+02 .
 
-<https://ecohealth-xi.vercel.app/City/Jakarta> a ex:City ;
-    rdfs:label "Jakarta" .
+ex:Obs_Beijing a sosa:Observation ;
+    ex:hasRiskLevel ex:HighRisk ;
+    ex:recommendation "Gunakan Masker N95" ;
+    ex:triggersRiskFor ex:Asma ;
+    sosa:hasFeatureOfInterest ex:Beijing ;
+    sosa:hasSimpleResult 1.75e+02 .
 
-<https://ecohealth-xi.vercel.app/City/Medan> a ex:City ;
-    rdfs:label "Medan" .
+ex:Obs_Delhi a sosa:Observation ;
+    ex:hasRiskLevel ex:HighRisk ;
+    ex:recommendation "Gunakan Masker N95" ;
+    ex:triggersRiskFor ex:Asma ;
+    sosa:hasFeatureOfInterest ex:Delhi ;
+    sosa:hasSimpleResult 2.1e+02 .
 
-<https://ecohealth-xi.vercel.app/City/Surabaya> a ex:City ;
-    rdfs:label "Surabaya" .
+ex:Obs_Jakarta a sosa:Observation ;
+    ex:hasRiskLevel ex:HighRisk ;
+    ex:recommendation "Gunakan Masker N95" ;
+    ex:triggersRiskFor ex:Asma ;
+    sosa:hasFeatureOfInterest ex:Jakarta ;
+    sosa:hasSimpleResult 1.68e+02 .
+
+ex:Obs_Los_Angeles a sosa:Observation ;
+    ex:hasRiskLevel ex:ModerateRisk ;
+    ex:triggersRiskFor ex:Ispa ;
+    sosa:hasFeatureOfInterest ex:Los_Angeles ;
+    sosa:hasSimpleResult 8.2e+01 .
+
+ex:Obs_Medan a sosa:Observation ;
+    ex:hasRiskLevel ex:ModerateRisk ;
+    ex:triggersRiskFor ex:Ispa ;
+    sosa:hasFeatureOfInterest ex:Medan ;
+    sosa:hasSimpleResult 1.32e+02 .
+
+ex:Obs_Seoul a sosa:Observation ;
+    ex:hasRiskLevel ex:ModerateRisk ;
+    ex:triggersRiskFor ex:Ispa ;
+    sosa:hasFeatureOfInterest ex:Seoul ;
+    sosa:hasSimpleResult 9.8e+01 .
+
+ex:Obs_Surabaya a sosa:Observation ;
+    ex:hasRiskLevel ex:ModerateRisk ;
+    ex:triggersRiskFor ex:Ispa ;
+    sosa:hasFeatureOfInterest ex:Surabaya ;
+    sosa:hasSimpleResult 9.5e+01 .
+
+ex:Obs_Tokyo a sosa:Observation ;
+    ex:hasRiskLevel ex:ModerateRisk ;
+    ex:triggersRiskFor ex:Ispa ;
+    sosa:hasFeatureOfInterest ex:Tokyo ;
+    sosa:hasSimpleResult 6.8e+01 .
+
+ex:Pneumonia a ex:Disease ;
+    ex:sensitiveGroup "Balita, lansia, penderita penyakit kronis" .
+
+ex:Asma a ex:Disease ;
+    ex:sensitiveGroup "Anak-anak, lansia, penderita alergi" .
+
+ex:Ispa a ex:Disease ;
+    ex:sensitiveGroup "Anak-anak, lansia" .
 

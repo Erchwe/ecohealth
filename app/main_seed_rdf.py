@@ -6,14 +6,14 @@ import os
 sys.path.append(os.path.dirname(__file__))
 
 try:
-    from app.openaq_client import fetch_all_cities_pm25
-    from app.rdf_builder import build_graph_from_measurements, save_graph
+    from app.converter import convert_csv_to_rdf
 except ImportError:
-    from openaq_client import fetch_all_cities_pm25
-    from rdf_builder import build_graph_from_measurements, save_graph
+    from converter import convert_csv_to_rdf
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app)
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 @app.route('/')
 def home():
@@ -29,21 +29,24 @@ def home():
 @app.route('/generate-rdf')
 def generate_rdf():
     """
-    Endpoint untuk menjalankan proses pengambilan data dari OpenAQ 
-    dan membangun graf RDF.
+    Endpoint untuk menjalankan proses transformasi data mentah (CSV & XML) 
+    menjadi Knowledge Graph (RDF) serta menjalankan Reasoning Engine.
     """
     try:
-        measurements = fetch_all_cities_pm25()
-        graph = build_graph_from_measurements(measurements)
-        
-        save_graph(graph)
+        CSV_INPUT = os.path.join(BASE_DIR, "semantic", "seeds", "openaq_sample_pm25.csv")
+        XML_INPUT = os.path.join(BASE_DIR, "semantic", "seeds", "diseases.xml")
+        TTL_OUTPUT = os.path.join(BASE_DIR, "semantic", "ontology.ttl")
+
+        status_konversi = convert_csv_to_rdf(CSV_INPUT, XML_INPUT, TTL_OUTPUT)
         
         return jsonify({
             "status": "success",
             "message": "RDF graph has been generated successfully",
             "details": {
-                "cities_processed": [m['city'] for m in measurements],
-                "output_path": "Check /tmp/ontology.ttl in server environment"
+                "source_data": "openaq_sample_pm25.csv",
+                "medical_data": "diseases.xml",
+                "status": status_konversi,
+                "output": "semantic/ontology.ttl"
             }
         })
     except Exception as e:
