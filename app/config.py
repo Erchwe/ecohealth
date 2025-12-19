@@ -17,3 +17,5 @@ RAW_DATA_DIR = "/tmp/openaq_v3"
 RDF_OUTPUT_PATH = "/tmp/ontology.ttl"
 
 BASE_URI = "http://example.org/ecohealth/"
+
+# Update
