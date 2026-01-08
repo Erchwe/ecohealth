@@ -1,77 +1,94 @@
-@prefix ex: <http://ecohealth.org/schema#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ex: <https://ecohealth-xi.vercel.app/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ex:Obs_Bandung a sosa:Observation ;
-    ex:hasRiskLevel ex:ModerateRisk ;
-    ex:triggersRiskFor ex:Ispa ;
-    sosa:hasFeatureOfInterest ex:Bandung ;
-    sosa:hasSimpleResult 1.12e+02 .
+ex:Ontology a owl:Ontology ;
+    rdfs:label "EcoHealth Ontology" .
 
-ex:Obs_Bangkok a sosa:Observation ;
-    ex:hasRiskLevel ex:HighRisk ;
-    ex:recommendation "Gunakan Masker N95" ;
-    ex:triggersRiskFor ex:Asma ;
-    sosa:hasFeatureOfInterest ex:Bangkok ;
-    sosa:hasSimpleResult 1.55e+02 .
+ex:City a rdfs:Class ;
+    rdfs:label "City" .
 
-ex:Obs_Beijing a sosa:Observation ;
-    ex:hasRiskLevel ex:HighRisk ;
-    ex:recommendation "Gunakan Masker N95" ;
-    ex:triggersRiskFor ex:Asma ;
-    sosa:hasFeatureOfInterest ex:Beijing ;
-    sosa:hasSimpleResult 1.75e+02 .
+ex:Disease a rdfs:Class ;
+    rdfs:label "Disease" .
 
-ex:Obs_Delhi a sosa:Observation ;
-    ex:hasRiskLevel ex:HighRisk ;
-    ex:recommendation "Gunakan Masker N95" ;
-    ex:triggersRiskFor ex:Asma ;
-    sosa:hasFeatureOfInterest ex:Delhi ;
-    sosa:hasSimpleResult 2.1e+02 .
+ex:RiskLevel a rdfs:Class ;
+    rdfs:label "Risk level" .
 
-ex:Obs_Jakarta a sosa:Observation ;
-    ex:hasRiskLevel ex:HighRisk ;
-    ex:recommendation "Gunakan Masker N95" ;
-    ex:triggersRiskFor ex:Asma ;
-    sosa:hasFeatureOfInterest ex:Jakarta ;
-    sosa:hasSimpleResult 1.68e+02 .
+ex:Symptom a rdfs:Class ;
+    rdfs:label "Symptom" .
 
-ex:Obs_Los_Angeles a sosa:Observation ;
-    ex:hasRiskLevel ex:ModerateRisk ;
-    ex:triggersRiskFor ex:Ispa ;
-    sosa:hasFeatureOfInterest ex:Los_Angeles ;
-    sosa:hasSimpleResult 8.2e+01 .
+ex:AirQualityObservation a rdfs:Class ;
+    rdfs:label "Air quality observation" ;
+    rdfs:subClassOf sosa:Observation .
 
-ex:Obs_Medan a sosa:Observation ;
-    ex:hasRiskLevel ex:ModerateRisk ;
-    ex:triggersRiskFor ex:Ispa ;
-    sosa:hasFeatureOfInterest ex:Medan ;
-    sosa:hasSimpleResult 1.32e+02 .
+ex:observedCity a rdf:Property ;
+    rdfs:label "observed city" ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range ex:City .
 
-ex:Obs_Seoul a sosa:Observation ;
-    ex:hasRiskLevel ex:ModerateRisk ;
-    ex:triggersRiskFor ex:Ispa ;
-    sosa:hasFeatureOfInterest ex:Seoul ;
-    sosa:hasSimpleResult 9.8e+01 .
+ex:pm25Value a rdf:Property ;
+    rdfs:label "PM2.5 value" ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range xsd:float .
 
-ex:Obs_Surabaya a sosa:Observation ;
-    ex:hasRiskLevel ex:ModerateRisk ;
-    ex:triggersRiskFor ex:Ispa ;
-    sosa:hasFeatureOfInterest ex:Surabaya ;
-    sosa:hasSimpleResult 9.5e+01 .
+ex:unit a rdf:Property ;
+    rdfs:label "unit" ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range xsd:string .
 
-ex:Obs_Tokyo a sosa:Observation ;
-    ex:hasRiskLevel ex:ModerateRisk ;
-    ex:triggersRiskFor ex:Ispa ;
-    sosa:hasFeatureOfInterest ex:Tokyo ;
-    sosa:hasSimpleResult 6.8e+01 .
+ex:observedAt a rdf:Property ;
+    rdfs:label "observed at" ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range xsd:dateTime .
 
-ex:Pneumonia a ex:Disease ;
-    ex:sensitiveGroup "Balita, lansia, penderita penyakit kronis" .
+ex:aqiCategory a rdf:Property ;
+    rdfs:label "AQI category" ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range xsd:string .
 
-ex:Asma a ex:Disease ;
-    ex:sensitiveGroup "Anak-anak, lansia, penderita alergi" .
+ex:hasRiskLevel a rdf:Property ;
+    rdfs:label "has risk level" ;
+    rdfs:range ex:RiskLevel .
 
-ex:Ispa a ex:Disease ;
-    ex:sensitiveGroup "Anak-anak, lansia" .
+ex:relatedToDisease a rdf:Property ;
+    rdfs:label "related to disease" ;
+    rdfs:domain ex:RiskLevel ;
+    rdfs:range ex:Disease .
 
+ex:triggersRiskFor a rdf:Property ;
+    rdfs:label "triggers risk for" ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range ex:Disease .
+
+ex:recommendation a rdf:Property ;
+    rdfs:label "recommendation" ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range xsd:string .
+
+ex:hasName a rdf:Property ;
+    rdfs:label "name" ;
+    rdfs:domain ex:Disease ;
+    rdfs:range xsd:string .
+
+ex:symptoms a rdf:Property ;
+    rdfs:label "symptoms" ;
+    rdfs:domain ex:Disease ;
+    rdfs:range xsd:string .
+
+ex:description a rdf:Property ;
+    rdfs:label "description" ;
+    rdfs:domain ex:Disease ;
+    rdfs:range xsd:string .
+
+ex:hasSymptom a rdf:Property ;
+    rdfs:label "has symptom" ;
+    rdfs:domain ex:Disease ;
+    rdfs:range ex:Symptom .
+
+ex:sensitiveGroup a rdf:Property ;
+    rdfs:label "sensitive group" ;
+    rdfs:domain ex:Disease ;
+    rdfs:range xsd:string .

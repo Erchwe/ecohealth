@@ -6,7 +6,7 @@ from rdflib import Graph, URIRef, Literal, Namespace, RDF
 def convert_csv_to_rdf(csv_path, xml_path, output_path):
     g = Graph()
     SOSA = Namespace("http://www.w3.org/ns/sosa/")
-    EX = Namespace("http://ecohealth.org/schema#")
+    EX = Namespace("https://ecohealth-xi.vercel.app/")
     g.bind("sosa", SOSA)
     g.bind("ex", EX)
 

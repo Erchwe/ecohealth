@@ -1,0 +1,9 @@
+PREFIX ex: <https://ecohealth-xi.vercel.app/>
+
+CONSTRUCT {
+  ?obs ex:triggersRiskFor ?disease .
+}
+WHERE {
+  ?obs ex:hasRiskLevel ?risk .
+  ?risk ex:relatedToDisease ?disease .
+}

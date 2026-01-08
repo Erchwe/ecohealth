@@ -16,6 +16,6 @@ PM25_PARAMETER = "pm25"
 RAW_DATA_DIR = "/tmp/openaq_v3"
 RDF_OUTPUT_PATH = "/tmp/ontology.ttl"
 
-BASE_URI = "http://example.org/ecohealth/"
+BASE_URI = "https://ecohealth-xi.vercel.app/"
 
 # Update

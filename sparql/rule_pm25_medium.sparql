@@ -1,0 +1,10 @@
+PREFIX ex: <https://ecohealth-xi.vercel.app/>
+
+CONSTRUCT {
+  ?obs ex:hasRiskLevel ex:RiskLevel_Medium .
+}
+WHERE {
+  ?obs a ex:AirQualityObservation ;
+       ex:pm25Value ?v .
+  FILTER (?v > 50 && ?v <= 100)
+}

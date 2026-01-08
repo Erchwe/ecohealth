@@ -1,9 +1,13 @@
+import csv
+from datetime import datetime
 from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF, RDFS, XSD
-from datetime import datetime
 from config import BASE_URI, RDF_OUTPUT_PATH
 
 EX = Namespace(BASE_URI)
+
+def _format_ts_for_id(ts: str) -> str:
+    return ts.replace(":", "").replace("-", "")
 
 def classify_pm25(pm25_value: float):
     """
@@ -62,7 +66,7 @@ def build_graph_from_measurements(measurements_per_city):
                 unit = m.get("unit")
                 ts = m.get("lastUpdated") or now_iso
 
-                obs_id = f"{city_id}_{ts.replace(':', '').replace('-', '')}"
+                obs_id = f"{city_id}_{_format_ts_for_id(ts)}"
                 obs_uri = EX[f"Observation/{obs_id}"]
 
                 g.add((obs_uri, RDF.type, EX.AirQualityObservation))
@@ -73,6 +77,49 @@ def build_graph_from_measurements(measurements_per_city):
 
                 category = classify_pm25(value)
                 g.add((obs_uri, EX.aqiCategory, Literal(category)))
+
+    return g
+
+def build_graph_from_csv(csv_path: str):
+    g = Graph()
+    g.bind("ex", EX)
+
+    now_iso = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    with open(csv_path, mode="r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if row.get("parameter") and row["parameter"] != "pm25":
+                continue
+
+            city_name = (row.get("city") or "").strip()
+            if not city_name:
+                continue
+
+            city_id = city_name.replace(" ", "_")
+            city_uri = EX[f"City/{city_id}"]
+            g.add((city_uri, RDF.type, EX.City))
+            g.add((city_uri, RDFS.label, Literal(city_name)))
+
+            try:
+                value = float(row.get("value") or "")
+            except ValueError:
+                continue
+
+            unit = row.get("unit") or ""
+            ts = row.get("last_updated") or now_iso
+
+            obs_id = f"{city_id}_{_format_ts_for_id(ts)}"
+            obs_uri = EX[f"Observation/{obs_id}"]
+
+            g.add((obs_uri, RDF.type, EX.AirQualityObservation))
+            g.add((obs_uri, EX.observedCity, city_uri))
+            g.add((obs_uri, EX.pm25Value, Literal(value, datatype=XSD.float)))
+            g.add((obs_uri, EX.unit, Literal(unit)))
+            g.add((obs_uri, EX.observedAt, Literal(ts, datatype=XSD.dateTime)))
+
+            category = classify_pm25(value)
+            g.add((obs_uri, EX.aqiCategory, Literal(category)))
 
     return g
 

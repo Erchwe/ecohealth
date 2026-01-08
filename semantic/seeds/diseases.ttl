@@ -1,0 +1,84 @@
+@prefix ex: <https://ecohealth-xi.vercel.app/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+ex:RiskLevel/Low a ex:RiskLevel ; rdfs:label "Low" .
+ex:RiskLevel/Medium a ex:RiskLevel ; rdfs:label "Medium" .
+ex:RiskLevel/High a ex:RiskLevel ; rdfs:label "High" .
+ex:RiskLevel/VeryHigh a ex:RiskLevel ; rdfs:label "Very High" .
+
+<https://ecohealth-xi.vercel.app/Disease/asma> a ex:Disease ;
+    rdfs:label "Asma" ;
+    ex:description """
+      Kondisi peradangan kronis pada saluran napas yang membuat penderitanya sangat sensitif terhadap polusi udara.
+    """ ;
+    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> ;
+    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Sesaknapas>,
+        <https://ecohealth-xi.vercel.app/Symptom/batuk>,
+        <https://ecohealth-xi.vercel.app/Symptom/dadaterasaberat>,
+        <https://ecohealth-xi.vercel.app/Symptom/mengi> .
+
+<https://ecohealth-xi.vercel.app/Disease/ispa> a ex:Disease ;
+    rdfs:label "ISPA" ;
+    ex:description """
+      Infeksi mendadak pada saluran napas bagian atas maupun bawah yang sering dipicu atau diperparah oleh kualitas udara yang buruk.
+    """ ;
+    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Sedang> ;
+    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Batuk>,
+        <https://ecohealth-xi.vercel.app/Symptom/demam>,
+        <https://ecohealth-xi.vercel.app/Symptom/pilek>,
+        <https://ecohealth-xi.vercel.app/Symptom/sakittenggorokan> .
+
+<https://ecohealth-xi.vercel.app/Disease/pneumonia> a ex:Disease ;
+    rdfs:label "Pneumonia" ;
+    ex:description """
+      Infeksi pada kantung udara di paru-paru yang dapat diperburuk oleh paparan polusi udara jangka panjang.
+    """ ;
+    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> ;
+    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Demam>,
+        <https://ecohealth-xi.vercel.app/Symptom/batukberdahak>,
+        <https://ecohealth-xi.vercel.app/Symptom/napascepat>,
+        <https://ecohealth-xi.vercel.app/Symptom/nyeridada> .
+
+<https://ecohealth-xi.vercel.app/RiskLevel/Sedang> a ex:RiskLevel ;
+    rdfs:label "Sedang" .
+
+<https://ecohealth-xi.vercel.app/Symptom/Batuk> a ex:Symptom ;
+    rdfs:label "Batuk" .
+
+<https://ecohealth-xi.vercel.app/Symptom/Demam> a ex:Symptom ;
+    rdfs:label "Demam" .
+
+<https://ecohealth-xi.vercel.app/Symptom/Sesaknapas> a ex:Symptom ;
+    rdfs:label "Sesak napas" .
+
+<https://ecohealth-xi.vercel.app/Symptom/batuk> a ex:Symptom ;
+    rdfs:label "batuk" .
+
+<https://ecohealth-xi.vercel.app/Symptom/batukberdahak> a ex:Symptom ;
+    rdfs:label "batuk berdahak" .
+
+<https://ecohealth-xi.vercel.app/Symptom/dadaterasaberat> a ex:Symptom ;
+    rdfs:label "dada terasa berat" .
+
+<https://ecohealth-xi.vercel.app/Symptom/demam> a ex:Symptom ;
+    rdfs:label "demam" .
+
+<https://ecohealth-xi.vercel.app/Symptom/mengi> a ex:Symptom ;
+    rdfs:label "mengi" .
+
+<https://ecohealth-xi.vercel.app/Symptom/napascepat> a ex:Symptom ;
+    rdfs:label "napas cepat" .
+
+<https://ecohealth-xi.vercel.app/Symptom/nyeridada> a ex:Symptom ;
+    rdfs:label "nyeri dada" .
+
+<https://ecohealth-xi.vercel.app/Symptom/pilek> a ex:Symptom ;
+    rdfs:label "pilek" .
+
+<https://ecohealth-xi.vercel.app/Symptom/sakittenggorokan> a ex:Symptom ;
+    rdfs:label "sakit tenggorokan" .
+
+<https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> a ex:RiskLevel ;
+    rdfs:label "Tinggi" .
+

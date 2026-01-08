@@ -1,0 +1,16 @@
+@prefix ex: <https://ecohealth-xi.vercel.app/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:RiskLevel_Low a ex:RiskLevel ; rdfs:label "Low" .
+ex:RiskLevel_Medium a ex:RiskLevel ; rdfs:label "Medium" .
+ex:RiskLevel_High a ex:RiskLevel ; rdfs:label "High" .
+ex:RiskLevel_VeryHigh a ex:RiskLevel ; rdfs:label "Very High" .
+
+ex:RiskLevel_Medium ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/ispa> .
+
+ex:RiskLevel_High ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/asma> .
+ex:RiskLevel_High ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
+
+ex:RiskLevel_VeryHigh ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/asma> .
+ex:RiskLevel_VeryHigh ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
+ex:RiskLevel_VeryHigh ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/ispa> .

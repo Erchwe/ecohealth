@@ -1,0 +1,103 @@
+@prefix ex: <https://ecohealth-xi.vercel.app/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:City/Jakarta a ex:City ;
+    rdfs:label "Jakarta" .
+
+ex:Observation/Jakarta_20251205T080000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Jakarta ;
+    ex:pm25Value "168.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "Unhealthy" .
+
+ex:City/Bandung a ex:City ;
+    rdfs:label "Bandung" .
+
+ex:Observation/Bandung_20251205T080000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Bandung ;
+    ex:pm25Value "112.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "UnhealthyForSensitiveGroups" .
+
+ex:City/Surabaya a ex:City ;
+    rdfs:label "Surabaya" .
+
+ex:Observation/Surabaya_20251205T080000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Surabaya ;
+    ex:pm25Value "95.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "Moderate" .
+
+ex:City/Medan a ex:City ;
+    rdfs:label "Medan" .
+
+ex:Observation/Medan_20251205T080000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Medan ;
+    ex:pm25Value "132.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "UnhealthyForSensitiveGroups" .
+
+ex:City/Bangkok a ex:City ;
+    rdfs:label "Bangkok" .
+
+ex:Observation/Bangkok_20251205T070000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Bangkok ;
+    ex:pm25Value "155.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T07:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "Unhealthy" .
+
+ex:City/Delhi a ex:City ;
+    rdfs:label "Delhi" .
+
+ex:Observation/Delhi_20251205T060000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Delhi ;
+    ex:pm25Value "210.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T06:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "VeryUnhealthy" .
+
+ex:City/Beijing a ex:City ;
+    rdfs:label "Beijing" .
+
+ex:Observation/Beijing_20251205T060000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Beijing ;
+    ex:pm25Value "175.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T06:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "Unhealthy" .
+
+ex:City/Tokyo a ex:City ;
+    rdfs:label "Tokyo" .
+
+ex:Observation/Tokyo_20251205T050000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Tokyo ;
+    ex:pm25Value "68.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T05:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "Moderate" .
+
+ex:City/Seoul a ex:City ;
+    rdfs:label "Seoul" .
+
+ex:Observation/Seoul_20251205T050000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Seoul ;
+    ex:pm25Value "98.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T05:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "Moderate" .
+
+ex:City/Los_Angeles a ex:City ;
+    rdfs:label "Los Angeles" .
+
+ex:Observation/Los_Angeles_20251205T040000Z a ex:AirQualityObservation ;
+    ex:observedCity ex:City/Los_Angeles ;
+    ex:pm25Value "82.0"^^xsd:float ;
+    ex:unit "Aæg/mA3" ;
+    ex:observedAt "2025-12-05T04:00:00Z"^^xsd:dateTime ;
+    ex:aqiCategory "Moderate" .
