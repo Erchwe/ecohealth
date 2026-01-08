@@ -2,57 +2,150 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:RiskLevel_Low a ex:RiskLevel ; rdfs:label "Low" .
-ex:RiskLevel_Medium a ex:RiskLevel ; rdfs:label "Medium" .
-ex:RiskLevel_High a ex:RiskLevel ; rdfs:label "High" .
-ex:RiskLevel_VeryHigh a ex:RiskLevel ; rdfs:label "Very High" .
+<https://ecohealth-xi.vercel.app/Observation/Bandung_20251205T080000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "UnhealthyForSensitiveGroups" ;
+    ex:hasRiskLevel ex:RiskLevel_High ;
+    ex:observedAt "2025-12-05T08:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Bandung> ;
+    ex:pm25Value "112.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
+        <https://ecohealth-xi.vercel.app/Disease/pneumonia> ;
+    ex:unit "ug/m3" .
 
-ex:RiskLevel_Medium ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/ispa> .
+<https://ecohealth-xi.vercel.app/Observation/Bangkok_20251205T070000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "Unhealthy" ;
+    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
+    ex:observedAt "2025-12-05T07:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Bangkok> ;
+    ex:pm25Value "155.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
+        <https://ecohealth-xi.vercel.app/Disease/ispa>,
+        <https://ecohealth-xi.vercel.app/Disease/pneumonia> ;
+    ex:unit "ug/m3" .
 
-ex:RiskLevel_High ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/asma> .
-ex:RiskLevel_High ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
+<https://ecohealth-xi.vercel.app/Observation/Beijing_20251205T060000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "Unhealthy" ;
+    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
+    ex:observedAt "2025-12-05T06:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Beijing> ;
+    ex:pm25Value "175.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
+        <https://ecohealth-xi.vercel.app/Disease/ispa>,
+        <https://ecohealth-xi.vercel.app/Disease/pneumonia> ;
+    ex:unit "ug/m3" .
 
-ex:RiskLevel_VeryHigh ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/asma> .
-ex:RiskLevel_VeryHigh ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
-ex:RiskLevel_VeryHigh ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/ispa> .
+<https://ecohealth-xi.vercel.app/Observation/Delhi_20251205T060000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "VeryUnhealthy" ;
+    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
+    ex:observedAt "2025-12-05T06:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Delhi> ;
+    ex:pm25Value "210.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
+        <https://ecohealth-xi.vercel.app/Disease/ispa>,
+        <https://ecohealth-xi.vercel.app/Disease/pneumonia> ;
+    ex:unit "ug/m3" .
 
-ex:RiskLevel/Low a ex:RiskLevel ; rdfs:label "Low" .
-ex:RiskLevel/Medium a ex:RiskLevel ; rdfs:label "Medium" .
-ex:RiskLevel/High a ex:RiskLevel ; rdfs:label "High" .
-ex:RiskLevel/VeryHigh a ex:RiskLevel ; rdfs:label "Very High" .
+<https://ecohealth-xi.vercel.app/Observation/Jakarta_20251205T080000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "Unhealthy" ;
+    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
+    ex:observedAt "2025-12-05T08:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Jakarta> ;
+    ex:pm25Value "168.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
+        <https://ecohealth-xi.vercel.app/Disease/ispa>,
+        <https://ecohealth-xi.vercel.app/Disease/pneumonia> ;
+    ex:unit "ug/m3" .
 
-<https://ecohealth-xi.vercel.app/Disease/asma> a ex:Disease ;
-    rdfs:label "Asma" ;
-    ex:description """
-      Kondisi peradangan kronis pada saluran napas yang membuat penderitanya sangat sensitif terhadap polusi udara.
-    """ ;
-    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> ;
-    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Sesaknapas>,
-        <https://ecohealth-xi.vercel.app/Symptom/batuk>,
-        <https://ecohealth-xi.vercel.app/Symptom/dadaterasaberat>,
-        <https://ecohealth-xi.vercel.app/Symptom/mengi> .
+<https://ecohealth-xi.vercel.app/Observation/Los_Angeles_20251205T040000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "Moderate" ;
+    ex:hasRiskLevel ex:RiskLevel_Medium ;
+    ex:observedAt "2025-12-05T04:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Los_Angeles> ;
+    ex:pm25Value "82.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> ;
+    ex:unit "ug/m3" .
 
-<https://ecohealth-xi.vercel.app/Disease/ispa> a ex:Disease ;
-    rdfs:label "ISPA" ;
-    ex:description """
-      Infeksi mendadak pada saluran napas bagian atas maupun bawah yang sering dipicu atau diperparah oleh kualitas udara yang buruk.
-    """ ;
-    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Sedang> ;
-    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Batuk>,
-        <https://ecohealth-xi.vercel.app/Symptom/demam>,
-        <https://ecohealth-xi.vercel.app/Symptom/pilek>,
-        <https://ecohealth-xi.vercel.app/Symptom/sakittenggorokan> .
+<https://ecohealth-xi.vercel.app/Observation/Medan_20251205T080000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "UnhealthyForSensitiveGroups" ;
+    ex:hasRiskLevel ex:RiskLevel_High ;
+    ex:observedAt "2025-12-05T08:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Medan> ;
+    ex:pm25Value "132.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
+        <https://ecohealth-xi.vercel.app/Disease/pneumonia> ;
+    ex:unit "ug/m3" .
 
-<https://ecohealth-xi.vercel.app/Disease/pneumonia> a ex:Disease ;
-    rdfs:label "Pneumonia" ;
-    ex:description """
-      Infeksi pada kantung udara di paru-paru yang dapat diperburuk oleh paparan polusi udara jangka panjang.
-    """ ;
-    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> ;
-    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Demam>,
-        <https://ecohealth-xi.vercel.app/Symptom/batukberdahak>,
-        <https://ecohealth-xi.vercel.app/Symptom/napascepat>,
-        <https://ecohealth-xi.vercel.app/Symptom/nyeridada> .
+<https://ecohealth-xi.vercel.app/Observation/Seoul_20251205T050000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "Moderate" ;
+    ex:hasRiskLevel ex:RiskLevel_Medium ;
+    ex:observedAt "2025-12-05T05:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Seoul> ;
+    ex:pm25Value "98.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> ;
+    ex:unit "ug/m3" .
+
+<https://ecohealth-xi.vercel.app/Observation/Surabaya_20251205T080000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "Moderate" ;
+    ex:hasRiskLevel ex:RiskLevel_Medium ;
+    ex:observedAt "2025-12-05T08:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Surabaya> ;
+    ex:pm25Value "95.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> ;
+    ex:unit "ug/m3" .
+
+<https://ecohealth-xi.vercel.app/Observation/Tokyo_20251205T050000Z> a ex:AirQualityObservation ;
+    ex:aqiCategory "Moderate" ;
+    ex:hasRiskLevel ex:RiskLevel_Medium ;
+    ex:observedAt "2025-12-05T05:00:00+00:00"^^xsd:dateTime ;
+    ex:observedCity <https://ecohealth-xi.vercel.app/City/Tokyo> ;
+    ex:pm25Value "68.0"^^xsd:float ;
+    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> ;
+    ex:unit "ug/m3" .
+
+<https://ecohealth-xi.vercel.app/RiskLevel/High> a ex:RiskLevel ;
+    rdfs:label "High" .
+
+<https://ecohealth-xi.vercel.app/RiskLevel/Low> a ex:RiskLevel ;
+    rdfs:label "Low" .
+
+<https://ecohealth-xi.vercel.app/RiskLevel/Medium> a ex:RiskLevel ;
+    rdfs:label "Medium" .
+
+<https://ecohealth-xi.vercel.app/RiskLevel/VeryHigh> a ex:RiskLevel ;
+    rdfs:label "Very High" .
+
+ex:RiskLevel_Low a ex:RiskLevel ;
+    rdfs:label "Low" .
+
+<https://ecohealth-xi.vercel.app/City/Bandung> a ex:City ;
+    rdfs:label "Bandung" .
+
+<https://ecohealth-xi.vercel.app/City/Bangkok> a ex:City ;
+    rdfs:label "Bangkok" .
+
+<https://ecohealth-xi.vercel.app/City/Beijing> a ex:City ;
+    rdfs:label "Beijing" .
+
+<https://ecohealth-xi.vercel.app/City/Delhi> a ex:City ;
+    rdfs:label "Delhi" .
+
+<https://ecohealth-xi.vercel.app/City/Jakarta> a ex:City ;
+    rdfs:label "Jakarta" .
+
+<https://ecohealth-xi.vercel.app/City/Los_Angeles> a ex:City ;
+    rdfs:label "Los Angeles" .
+
+<https://ecohealth-xi.vercel.app/City/Medan> a ex:City ;
+    rdfs:label "Medan" .
+
+<https://ecohealth-xi.vercel.app/City/Seoul> a ex:City ;
+    rdfs:label "Seoul" .
+
+<https://ecohealth-xi.vercel.app/City/Surabaya> a ex:City ;
+    rdfs:label "Surabaya" .
+
+<https://ecohealth-xi.vercel.app/City/Tokyo> a ex:City ;
+    rdfs:label "Tokyo" .
 
 <https://ecohealth-xi.vercel.app/RiskLevel/Sedang> a ex:RiskLevel ;
     rdfs:label "Sedang" .
@@ -96,132 +189,51 @@ ex:RiskLevel/VeryHigh a ex:RiskLevel ; rdfs:label "Very High" .
 <https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> a ex:RiskLevel ;
     rdfs:label "Tinggi" .
 
-ex:City/Jakarta a ex:City ;
-    rdfs:label "Jakarta" .
+ex:RiskLevel_High a ex:RiskLevel ;
+    rdfs:label "High" ;
+    ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/asma>,
+        <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
 
-ex:Observation/Jakarta_20251205T080000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Jakarta ;
-    ex:pm25Value "168.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "Unhealthy" ;
-    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
+ex:RiskLevel_Medium a ex:RiskLevel ;
+    rdfs:label "Medium" ;
+    ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/ispa> .
+
+ex:RiskLevel_VeryHigh a ex:RiskLevel ;
+    rdfs:label "Very High" ;
+    ex:relatedToDisease <https://ecohealth-xi.vercel.app/Disease/asma>,
         <https://ecohealth-xi.vercel.app/Disease/ispa>,
         <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
 
-ex:City/Bandung a ex:City ;
-    rdfs:label "Bandung" .
+<https://ecohealth-xi.vercel.app/Disease/asma> a ex:Disease ;
+    rdfs:label "Asma" ;
+    ex:description """
+      Kondisi peradangan kronis pada saluran napas yang membuat penderitanya sangat sensitif terhadap polusi udara.
+    """ ;
+    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> ;
+    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Sesaknapas>,
+        <https://ecohealth-xi.vercel.app/Symptom/batuk>,
+        <https://ecohealth-xi.vercel.app/Symptom/dadaterasaberat>,
+        <https://ecohealth-xi.vercel.app/Symptom/mengi> .
 
-ex:Observation/Bandung_20251205T080000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Bandung ;
-    ex:pm25Value "112.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "UnhealthyForSensitiveGroups" ;
-    ex:hasRiskLevel ex:RiskLevel_High ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
-        <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
+<https://ecohealth-xi.vercel.app/Disease/pneumonia> a ex:Disease ;
+    rdfs:label "Pneumonia" ;
+    ex:description """
+      Infeksi pada kantung udara di paru-paru yang dapat diperburuk oleh paparan polusi udara jangka panjang.
+    """ ;
+    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Tinggi> ;
+    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Demam>,
+        <https://ecohealth-xi.vercel.app/Symptom/batukberdahak>,
+        <https://ecohealth-xi.vercel.app/Symptom/napascepat>,
+        <https://ecohealth-xi.vercel.app/Symptom/nyeridada> .
 
-ex:City/Surabaya a ex:City ;
-    rdfs:label "Surabaya" .
+<https://ecohealth-xi.vercel.app/Disease/ispa> a ex:Disease ;
+    rdfs:label "ISPA" ;
+    ex:description """
+      Infeksi mendadak pada saluran napas bagian atas maupun bawah yang sering dipicu atau diperparah oleh kualitas udara yang buruk.
+    """ ;
+    ex:hasRiskLevel <https://ecohealth-xi.vercel.app/RiskLevel/Sedang> ;
+    ex:hasSymptom <https://ecohealth-xi.vercel.app/Symptom/Batuk>,
+        <https://ecohealth-xi.vercel.app/Symptom/demam>,
+        <https://ecohealth-xi.vercel.app/Symptom/pilek>,
+        <https://ecohealth-xi.vercel.app/Symptom/sakittenggorokan> .
 
-ex:Observation/Surabaya_20251205T080000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Surabaya ;
-    ex:pm25Value "95.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "Moderate" ;
-    ex:hasRiskLevel ex:RiskLevel_Medium ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> .
-
-ex:City/Medan a ex:City ;
-    rdfs:label "Medan" .
-
-ex:Observation/Medan_20251205T080000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Medan ;
-    ex:pm25Value "132.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T08:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "UnhealthyForSensitiveGroups" ;
-    ex:hasRiskLevel ex:RiskLevel_High ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
-        <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
-
-ex:City/Bangkok a ex:City ;
-    rdfs:label "Bangkok" .
-
-ex:Observation/Bangkok_20251205T070000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Bangkok ;
-    ex:pm25Value "155.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T07:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "Unhealthy" ;
-    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
-        <https://ecohealth-xi.vercel.app/Disease/ispa>,
-        <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
-
-ex:City/Delhi a ex:City ;
-    rdfs:label "Delhi" .
-
-ex:Observation/Delhi_20251205T060000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Delhi ;
-    ex:pm25Value "210.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T06:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "VeryUnhealthy" ;
-    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
-        <https://ecohealth-xi.vercel.app/Disease/ispa>,
-        <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
-
-ex:City/Beijing a ex:City ;
-    rdfs:label "Beijing" .
-
-ex:Observation/Beijing_20251205T060000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Beijing ;
-    ex:pm25Value "175.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T06:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "Unhealthy" ;
-    ex:hasRiskLevel ex:RiskLevel_VeryHigh ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/asma>,
-        <https://ecohealth-xi.vercel.app/Disease/ispa>,
-        <https://ecohealth-xi.vercel.app/Disease/pneumonia> .
-
-ex:City/Tokyo a ex:City ;
-    rdfs:label "Tokyo" .
-
-ex:Observation/Tokyo_20251205T050000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Tokyo ;
-    ex:pm25Value "68.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T05:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "Moderate" ;
-    ex:hasRiskLevel ex:RiskLevel_Medium ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> .
-
-ex:City/Seoul a ex:City ;
-    rdfs:label "Seoul" .
-
-ex:Observation/Seoul_20251205T050000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Seoul ;
-    ex:pm25Value "98.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T05:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "Moderate" ;
-    ex:hasRiskLevel ex:RiskLevel_Medium ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> .
-
-ex:City/Los_Angeles a ex:City ;
-    rdfs:label "Los Angeles" .
-
-ex:Observation/Los_Angeles_20251205T040000Z a ex:AirQualityObservation ;
-    ex:observedCity ex:City/Los_Angeles ;
-    ex:pm25Value "82.0"^^xsd:float ;
-    ex:unit "Aæg/mA3" ;
-    ex:observedAt "2025-12-05T04:00:00Z"^^xsd:dateTime ;
-    ex:aqiCategory "Moderate" ;
-    ex:hasRiskLevel ex:RiskLevel_Medium ;
-    ex:triggersRiskFor <https://ecohealth-xi.vercel.app/Disease/ispa> .

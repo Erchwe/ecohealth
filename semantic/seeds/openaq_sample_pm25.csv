@@ -1,11 +1,13 @@
-city,country,parameter,value,unit,last_updated
-Jakarta,ID,pm25,168,µg/m³,2025-12-05T08:00:00Z
-Bandung,ID,pm25,112,µg/m³,2025-12-05T08:00:00Z
-Surabaya,ID,pm25,95,µg/m³,2025-12-05T08:00:00Z
-Medan,ID,pm25,132,µg/m³,2025-12-05T08:00:00Z
-Bangkok,TH,pm25,155,µg/m³,2025-12-05T07:00:00Z
-Delhi,IN,pm25,210,µg/m³,2025-12-05T06:00:00Z
-Beijing,CN,pm25,175,µg/m³,2025-12-05T06:00:00Z
-Tokyo,JP,pm25,68,µg/m³,2025-12-05T05:00:00Z
-Seoul,KR,pm25,98,µg/m³,2025-12-05T05:00:00Z
-Los Angeles,US,pm25,82,µg/m³,2025-12-05T04:00:00Z
+﻿city,country,parameter,value,unit,last_updated
+Jakarta,ID,pm25,168,ug/m3,2025-12-05T08:00:00Z
+Bandung,ID,pm25,112,ug/m3,2025-12-05T08:00:00Z
+Surabaya,ID,pm25,95,ug/m3,2025-12-05T08:00:00Z
+Medan,ID,pm25,132,ug/m3,2025-12-05T08:00:00Z
+Bangkok,TH,pm25,155,ug/m3,2025-12-05T07:00:00Z
+Delhi,IN,pm25,210,ug/m3,2025-12-05T06:00:00Z
+Beijing,CN,pm25,175,ug/m3,2025-12-05T06:00:00Z
+Tokyo,JP,pm25,68,ug/m3,2025-12-05T05:00:00Z
+Seoul,KR,pm25,98,ug/m3,2025-12-05T05:00:00Z
+Los Angeles,US,pm25,82,ug/m3,2025-12-05T04:00:00Z
+
+
