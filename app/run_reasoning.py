@@ -16,7 +16,7 @@ RULE_FILES = [
     "rule_risk_to_disease.sparql",
 ]
 
-def run_reasoning():
+def run_reasoning(output_path: str | None = None):
     g = Graph()
 
     # load base data
@@ -41,14 +41,15 @@ def run_reasoning():
             g.add(triple)
 
     after = len(g)
-    g.serialize(destination=OUTPUT_TTL, format="turtle")
+    output = output_path or OUTPUT_TTL
+    g.serialize(destination=output, format="turtle")
 
     return {
         "status": "success",
         "triples_before": before,
         "triples_after": after,
         "inferred_triples": after - before,
-        "output": OUTPUT_TTL
+        "output": output
     }
 
 if __name__ == "__main__":

@@ -24,14 +24,20 @@ def convert_csv_to_rdf(csv_path, xml_path, output_path):
     # 2. Map Data Sensor dari CSV ke Graph
     if not os.path.exists(csv_path): return "Error: CSV tidak ditemukan."
     
-    with open(csv_path, mode='r', encoding='utf-8') as f:
+    with open(csv_path, mode='r', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         for i, row in enumerate(reader):
             if i >= 10: break 
-            city_name = row['city'].replace(" ", "_")
+            city_raw = row.get('city')
+            if not city_raw:
+                continue
+            city_name = city_raw.replace(" ", "_")
             obs_uri = URIRef(EX + f"Obs_{city_name}")
             city_uri = URIRef(EX + city_name)
-            pm_val = float(row['value'])
+            try:
+                pm_val = float(row.get('value') or "")
+            except ValueError:
+                continue
 
             g.add((obs_uri, RDF.type, SOSA.Observation))
             g.add((obs_uri, SOSA.hasSimpleResult, Literal(pm_val)))

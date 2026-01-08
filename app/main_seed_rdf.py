@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SEEDS_DIR = os.path.join(BASE_DIR, "semantic", "seeds")
 CITIES_TTL = os.path.join(SEEDS_DIR, "cities_pm25.ttl")
 REASONED_TTL = os.path.join(SEEDS_DIR, "cities_pm25_reasoned.ttl")
+TMP_REASONED_TTL = "/tmp/cities_pm25_reasoned.ttl"
 # Folder /tmp wajib untuk penulisan file di Vercel (Read-only protection)
 TTL_OUTPUT = "/tmp/ontology.ttl"
 
@@ -70,6 +71,8 @@ def view_rdf():
     return jsonify({"error": "Jalankan /generate-rdf dulu"}), 404
 
 def _select_dataset_path():
+    if os.path.exists(TMP_REASONED_TTL):
+        return TMP_REASONED_TTL
     if os.path.exists(REASONED_TTL):
         return REASONED_TTL
     if os.path.exists(CITIES_TTL):
@@ -94,7 +97,7 @@ def run_reasoning_endpoint():
     if not os.path.exists(CITIES_TTL):
         return jsonify({"error": "cities_pm25.ttl belum ada, generate dulu"}), 400
     try:
-        result = run_reasoning()
+        result = run_reasoning(output_path=TMP_REASONED_TTL)
         return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
