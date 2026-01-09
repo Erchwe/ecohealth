@@ -1,0 +1,53 @@
+@prefix ex: <https://ecohealth-xi.vercel.app/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:Ontology a owl:Ontology ;
+    rdfs:label "EcoHealth Ontology" .
+
+# --- Classes (Kategori Utama) ---
+ex:City a owl:Class ;
+    rdfs:label "City" .
+
+ex:Disease a owl:Class ;
+    rdfs:label "Disease" .
+
+ex:RiskLevel a owl:Class ;
+    rdfs:label "Risk level" .
+
+ex:AirQualityObservation a owl:Class ;
+    rdfs:label "Air quality observation" ;
+    rdfs:subClassOf sosa:Observation .
+
+# --- Object Properties (Hubungan antar Kategori) ---
+ex:observedCity a owl:ObjectProperty ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range ex:City .
+
+ex:triggersRiskFor a owl:ObjectProperty ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range ex:Disease .
+
+ex:hasRiskLevel a owl:ObjectProperty ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range ex:RiskLevel .
+
+# --- Data Properties (Atribut Data) ---
+ex:pm25Value a owl:DatatypeProperty ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ex:hasName a owl:DatatypeProperty ;
+    rdfs:domain ex:Disease ;
+    rdfs:range xsd:string .
+
+ex:symptoms a owl:DatatypeProperty ;
+    rdfs:domain ex:Disease ;
+    rdfs:range xsd:string .
+
+ex:recommendation a owl:DatatypeProperty ;
+    rdfs:domain ex:AirQualityObservation ;
+    rdfs:range xsd:string .
